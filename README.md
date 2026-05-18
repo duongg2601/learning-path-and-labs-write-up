@@ -8,4 +8,11 @@ Topics:
 - Path Traversal
 - TryHackMe RedTeam Learning Path
 
+Tools:
+- Burp Suite
+- Python request
+- Kali Linux
+- Nmap
+- Metesploit
+
 Labs are mainly based on PortSwigger Web Security Academy and TryHackMe.
