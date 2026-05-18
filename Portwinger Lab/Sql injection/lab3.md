@@ -1,4 +1,5 @@
 # Lab3: SQL injection UNION attack, determining the number of columns returned by the query
+url: https://portswigger.net/web-security/sql-injection/union-attacks/lab-determine-number-of-columns
 
 # Overview:
 - This lab contains a SQL injection vulnerability in the product category filter. The results from the query are returned in the application's response, so you can use a UNION attack to retrieve data from other tables. The first step of such an attack is to determine the number of columns that are being returned by the query. You will then use this technique in subsequent labs to construct the full attack.

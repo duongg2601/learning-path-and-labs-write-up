@@ -1,5 +1,5 @@
-# Lab:
-Brute-forcing a stay-logged-in cookie
+# Lab: Brute-forcing a stay-logged-in cookie
+url: https://portswigger.net/web-security/authentication/other-mechanisms/lab-brute-forcing-a-stay-logged-in-cookie
 
 # Overview:
 This lab allows users to stay logged in even after they close their browser session. The cookie used to provide this functionality is vulnerable to brute-forcing.

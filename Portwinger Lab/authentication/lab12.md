@@ -1,5 +1,5 @@
-# Lab:
-Password reset broken logic
+# Lab: Password reset broken logic
+url: https://portswigger.net/web-security/authentication/other-mechanisms/lab-password-reset-broken-logic
 
 # Overview
 This lab's password reset functionality is vulnerable. To solve the lab, reset Carlos's password then log in and access his "My account" page.

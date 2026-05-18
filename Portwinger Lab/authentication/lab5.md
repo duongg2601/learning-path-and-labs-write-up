@@ -1,5 +1,5 @@
-# Lab: 
-Username enumeration via response timing
+# Lab: Username enumeration via response timing
+url: https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing
 
 # Overview: 
 Enumerate a valid username, brute-force this user's password

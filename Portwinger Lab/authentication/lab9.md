@@ -1,5 +1,5 @@
-# Lab: 
-2FA broken logic
+# Lab: 2FA broken logic
+url: https://portswigger.net/web-security/authentication/multi-factor/lab-2fa-broken-logic
 
 # Overview:
 This lab's two-factor authentication is vulnerable due to its flawed logic. To solve the lab, access Carlos's account page.

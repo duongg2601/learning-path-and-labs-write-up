@@ -1,5 +1,5 @@
-# Lab:
-Lab: 2FA bypass using a brute-force attack
+# Lab: Lab: 2FA bypass using a brute-force attack
+url: https://portswigger.net/web-security/authentication/multi-factor/lab-2fa-bypass-using-a-brute-force-attack
 
 # Overview:
 This lab's two-factor authentication is vulnerable to brute-forcing. You have already obtained a valid username and password, but do not have access to the user's 2FA verification code. To solve the lab, brute-force the 2FA code and access Carlos's account page.

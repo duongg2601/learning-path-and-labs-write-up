@@ -1,5 +1,5 @@
-# Lab: 
-Username enumeration via account lock
+# Lab: Username enumeration via account lock
+url: https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-account-lock
 
 # Overview
 This lab is vulnerable to username enumeration. It uses account locking, but this contains a logic flaw. To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page. 

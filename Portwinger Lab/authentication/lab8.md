@@ -1,5 +1,5 @@
-# Lab:
-Broken brute-force protection, multiple credentials per request
+# Lab: Broken brute-force protection, multiple credentials per request
+url: https://portswigger.net/web-security/authentication/password-based/lab-broken-brute-force-protection-multiple-credentials-per-request
 
 # Overview:
 This lab is vulnerable due to a logic flaw in its brute-force protection. To solve the lab, brute-force Carlos's password, then access his account page. 

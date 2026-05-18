@@ -1,4 +1,5 @@
 # Lab7: Blind SQL injection with conditional responses
+url: https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses
 
 # Overview:
 -This lab contains a blind SQL injection vulnerability. The application uses a tracking cookie for analytics, and performs a SQL query containing the value of the submitted cookie.
