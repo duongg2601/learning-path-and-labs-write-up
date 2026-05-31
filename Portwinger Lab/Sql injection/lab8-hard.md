@@ -28,9 +28,8 @@ to get the length of password
 to get the valid password. Use Burp Intruder to iterator a(Password length) and b(a-z,0-9)
 
 # Turbo Intruder Script:
-def queueRequests(target, wordlists):
-
-    engine = RequestEngine(
+    def queueRequests(target, wordlists):
+        engine = RequestEngine(
         endpoint=target.endpoint,
         concurrentConnections=3,
         requestsPerConnection=10,
@@ -43,5 +42,5 @@ def queueRequests(target, wordlists):
         for pwd in passwords:
             engine.queue(target.req, [loop, pwd])
 
-def handleResponse(req, interesting):
-    table.add(req)
+    def handleResponse(req, interesting):
+        table.add(req)

