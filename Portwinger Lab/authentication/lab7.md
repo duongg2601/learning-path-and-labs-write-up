@@ -12,7 +12,7 @@ This lab is vulnerable to username enumeration. It uses account locking, but thi
 - So this is the correct password (password: pass)
 
 # Turbo Intruder Code
-- First code to enumerate valid username:
+First code to enumerate valid username:
     def queueRequests(target, wordlists):
         engine = RequestEngine(endpoint=target.endpoint,
             concurrentConnections=1,
@@ -30,7 +30,7 @@ This lab is vulnerable to username enumeration. It uses account locking, but thi
     def handleResponse(req, interesting):
         table.add(req)
 
-- Second code to brute force password:
+Second code to brute force password:
     def queueRequests(target, wordlists):
         engine = RequestEngine(endpoint=target.endpoint,
             concurrentConnections=3,
