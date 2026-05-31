@@ -50,3 +50,46 @@ so use this to find out credetial        : ' UNION SELECT NULL,username || '~' |
 - Exploiting blind SQLi by triggering conditional errors: <lab8.md>
     xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a
     xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a
+
+# Extracting sensitive data via verbose SQL error messages
+- Verbose SQL errors caused by database misconfigurations can leak useful information, such as the full SQL query structure. For example, an error after injecting ' may reveal that user input is placed inside a single-quoted string in a WHERE clause, helping attackers craft valid payloads.
+
+- Attackers can also use CAST() to force type-conversion errors and expose query results. For instance:
+    CAST((SELECT example_column FROM example_table) AS int)
+
+- If example_column contains text, the database may return an error like:
+    ERROR: invalid input syntax for type integer: "Example data"
+<lab9.md>
+- This can disclose sensitive data directly in error messages, turning a blind SQL injection into a visible one. Error-based extraction is also useful when character limits prevent conditional or boolean-based techniques.
+
+# Exploiting blind SQLi by triggering time delays
+- When an application catches database errors and returns the same response for both true and false conditions, error-based and conditional-response techniques no longer work. In this case, attackers can infer results by measuring response time.
+
+- The idea is to inject a condition that causes the database to pause execution only when the condition is true. Since SQL queries are processed synchronously, the HTTP response will also be delayed.
+
+Example in Microsoft SQL Server:
+
+'; IF (1=2) WAITFOR DELAY '0:0:10'--
+Condition is false → no delay.
+'; IF (1=1) WAITFOR DELAY '0:0:10'--
+Condition is true → response delayed by 10 seconds.
+
+This allows attackers to perform boolean tests using timing rather than page content.
+
+To extract data, conditions can be applied to individual characters. For example:
+
+'; IF (
+    SELECT COUNT(Username)
+    FROM Users
+    WHERE Username='Administrator'
+      AND SUBSTRING(Password,1,1) > 'm'
+) = 1
+WAITFOR DELAY '0:0:10'--
+
+Interpretation:
+
+If the first character of the administrator's password is alphabetically greater than 'm', the response is delayed.
+Otherwise, the response arrives normally.
+
+By repeatedly testing different characters (often with a binary search approach), an attacker can reconstruct the password one character at a time, even when the application never displays database errors or query results.
+<lab10.md>, <lab11.md>
